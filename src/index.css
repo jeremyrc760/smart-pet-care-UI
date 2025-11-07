@@ -1,0 +1,117 @@
+/* === Global Background === */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: url("C:\Users\yrc15\Desktop\IoTfile\smartfeeder-ui\src\assets\dog.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+/* === Main Layout === */
+.app {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+h1 {
+  color: #160350;
+  font-size: 3.6rem;
+  margin-bottom: 40x;
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(88, 166, 255, 0.5);
+}
+
+/* === Card Container === */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: rgba(0, 0, 30, 0.6);
+  border-radius: 25px;
+  box-shadow: 0 4px 12px rgba(66, 91, 65, 0.639);
+  padding: 30px;
+  min-width: 360px;
+  max-width: 520px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(13, 163, 130, 0.5);
+}
+
+/* === Titles === */
+.card h2 {
+  color: #87e11169;
+  font-size: 1.3rem;
+  border-bottom: 1px solid rgba(160, 179, 68, 0.285);
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+
+/* === Buttons === */
+button {
+  background-color: #201550;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #1d4ed8;
+  transform: scale(1.03);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* === Status Lights === */
+.lamp {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.red { background-color: #e34646; }
+.green { background-color: #22c55e; }
+
+/* === Log Panel === */
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card ul li {
+  font-family: monospace;
+  margin-bottom: 4px;
+  color: #c9d1d9;
+}
+
+p {
+  margin: 4px 0;
+}
+
+/* === Refresh / Control Buttons inside Cards === */
+.control-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}

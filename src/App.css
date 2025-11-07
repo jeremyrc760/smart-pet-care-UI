@@ -1,0 +1,49 @@
+.app {
+  display: flex;
+  justify-content: center; /* 整体居中 */
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+.dashboard-container {
+  width: 100%;
+  max-width: 1200px; /* 与卡片布局宽度一致 */
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ✅ 标题样式，让它居中 */
+.dashboard-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 24px;
+}
+
+/* ✅ 卡片行布局 */
+.card-grid {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.card-grid.top-row {
+  justify-content: center;
+}
+
+.card-grid.bottom-row {
+  justify-content: center;
+}
+
+/* ✅ 让卡片有统一宽度与样式 */
+.card {
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 16px;
+  padding: 20px;
+  width: 360px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
