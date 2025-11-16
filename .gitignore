@@ -22,3 +22,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Env & local config
+.env
+.env.*
+.vite/
+coverage/
+
+
+
+
