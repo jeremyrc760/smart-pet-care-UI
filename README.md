@@ -1,16 +1,40 @@
-# React + Vite
+# 🐾 Smart Pet Care UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **React + Vite** based web dashboard for monitoring and controlling a smart pet care system — including **auto feeder, water dispenser, and environment sensors** integrated with Raspberry Pi and PubNub real-time messaging.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- 🕹️ **Real-time Dashboard** – Displays live data from Raspberry Pi sensors (feeding, water level, temperature, humidity)
+- 🐕 **Modular Design** – Independent React components (FeedCard, WaterCard, EnvCard, CameraCard)
+- ☁️ **PubNub Integration** – Real-time publish/subscribe data update
+- 📱 **Responsive Layout** – Works across desktop and tablet screens
+- 🧩 **Scalable Structure** – Easy to extend for more IoT sensors or actuators
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Layer | Technology |
+|-------|-------------|
+| **Frontend** | React 19 + Vite 7 |
+| **UI Components** | JSX + CSS Modules |
+| **Real-time Data** | PubNub SDK |
+| **Backend (planned)** | Node.js / Express API |
+| **Hardware Interface** | Raspberry Pi 5 + Python sensor scripts |
+
+---
+
+## ⚙️ Installation & Run
+
+```bash
+# 1️⃣ Clone the repository
+git clone https://github.com/jeremyrc760/smart-pet-care-UI.git
+cd smart-pet-care-UI
+
+# 2️⃣ Install dependencies
+npm install
+
+# 3️⃣ Start local dev server
+npm run dev
