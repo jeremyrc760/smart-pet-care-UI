@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "pubnub": "^10.2.0",
+    "pubnub": "^10.2.3",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },

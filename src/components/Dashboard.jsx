@@ -1,49 +1,51 @@
-import React, { useState } from "react";
-import FeedCard from "./FeedCard.jsx";
-import WaterCard from "./WaterCard.jsx";
-import EnvCard from "./EnvCard.jsx";
-import CameraCard from "./CameraCard.jsx";
-import LogPanel from "./LogPanel.jsx";
-import "../App.css"; // 注意路径往上一级
+// src/components/Dashboard.jsx
+import React, { useEffect } from "react";
+import PubNub from "pubnub";
 
-function Dashboard({ onLogout }) {
-  const [pressure, setPressure] = useState(0.45);
-  const feedThreshold = 0.5;
+import FeedCard from "./FeedCard";
+import EnvCard from "./EnvCard";
+import CameraCard from "./CameraCard";
+import LogPanel from "./LogPanel";
 
-  const handleAddFood = () => {
-    setPressure((prev) => Math.min(prev + 0.3, 1.0)); // 模拟加食物
+function Dashboard() {
+
+  // 创建 PubNub 实例（只创建一次）
+  const pubnub = new PubNub({
+    publishKey: "YOUR_PUB_KEY",
+    subscribeKey: "YOUR_SUB_KEY",
+    uuid: "smartfeeder-ui",
+  });
+
+  // 你也可以监听来自树莓派的反馈（可选）
+  useEffect(() => {
+    pubnub.subscribe({ channels: ["smartfeeder"] });
+
+    pubnub.addListener({
+      message: (msg) => {
+        console.log("Received from Pi:", msg.message);
+      },
+    });
+  }, []);
+
+  // 喂食动作由 Dashboard 统一管理
+  const handleFeedCommand = () => {
+    pubnub.publish({
+      channel: "smartfeeder",
+      message: { command: "feed" },
+    });
   };
 
   return (
-    <div className="app">
-      <div className="dashboard-container">
-        <div className="dashboard-header">
-          <h1 className="dashboard-title">Smart Feeder Dashboard</h1>
-          {/* ✅ 新增 Logout 按钮 */}
-          <button onClick={onLogout} className="logout-btn">
-            Logout
-          </button>
-        </div>
+    <div className="dashboard">
 
-        <div className="card-grid top-row">
-          <FeedCard
-            pressure={pressure}
-            feedThreshold={feedThreshold}
-            onAddFood={handleAddFood}
-          />
-          <WaterCard
-            waterLevel={45}
-            waterThreshold={30}
-            onAddWater={() => alert("Add water")}
-          />
-          <EnvCard />
-        </div>
+      {/* 喂食卡片 */}
+      <FeedCard onFeed={handleFeedCommand} />
 
-        <div className="card-grid bottom-row">
-          <CameraCard />
-          <LogPanel />
-        </div>
-      </div>
+      {/* 其他模块按你原来的结构 */}
+      <EnvCard />
+      <CameraCard />
+      <LogPanel />
+
     </div>
   );
 }
