@@ -1,0 +1,113 @@
+/* src/components/Login.css */
+
+/* 通用颜色变量 */
+:root {
+    --text-color: #e4e4f7;
+    --card-bg: #22223b; 
+    --input-bg: #333350;
+    --input-border: #555;
+    --button-gradient: linear-gradient(90deg, #5D26C1 0%, #30E3CA 100%); /* 目标界面的绿/紫渐变 */
+    --button-gradient-hover: linear-gradient(90deg, #4a1f9a 0%, #29C6A9 100%);
+    --error-color: #dc3545;
+}
+
+/* 整个登录页面的背景和居中 */
+.login-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* 假设您的背景图在项目根目录或公共目录 */
+    background-image: url('/public/images/login-background.jpg'); 
+    background-size: cover;
+    background-position: center;
+}
+
+/* 登录卡片样式，符合截图中的深色圆角设计 */
+.login-card {
+    background-color: rgba(34, 34, 59, 0.9); /* 卡片背景带透明度 */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    width: 350px;
+    color: var(--text-color);
+}
+
+.login-card h2 {
+    font-size: 1.8em;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.login-card p.subtitle {
+    font-size: 0.9em;
+    opacity: 0.7;
+    margin-bottom: 30px;
+}
+
+/* 输入框组 */
+.login-input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.login-input-group label {
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    opacity: 0.8;
+}
+
+.login-input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1em;
+    box-sizing: border-box; /* 确保 padding 不会增加宽度 */
+}
+
+/* 登录/注册按钮 */
+.login-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: var(--button-gradient);
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s;
+    margin-top: 10px;
+}
+
+.login-button:hover {
+    background: var(--button-gradient-hover);
+}
+
+.login-button:active {
+    transform: scale(0.99);
+}
+
+/* 错误和切换链接 */
+.error-message {
+    color: var(--error-color);
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+.toggle-link {
+    color: #30E3CA; /* 使用按钮渐变色中的绿色 */
+    cursor: pointer;
+    text-decoration: none; /* 移除下划线，让它更像目标界面 */
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.toggle-link:hover {
+    color: #4a1f9a;
+}
